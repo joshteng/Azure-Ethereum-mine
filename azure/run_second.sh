@@ -1,7 +1,7 @@
 sudo systemctl stop lightdm.service
-wget -O NVIDIA-Linux-x86_64-367.92-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
-chmod +x NVIDIA-Linux-x86_64-367.92-grid.run
-sudo ./NVIDIA-Linux-x86_64-367.92-grid.run
+wget http://in.download.nvidia.com/XFree86/Linux-x86_64/375.66/NVIDIA-Linux-x86_64-375.66.run
+chmod +x NVIDIA-Linux-x86_64-375.66.run
+sudo ./NVIDIA-Linux-x86_64-375.66.run
 
 sudo echo $'\nIgnoreSP=TRUE\n' >> /etc/nvidia/gridd.conf.template
 
