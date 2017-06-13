@@ -40,6 +40,11 @@ ssh <username>@<server ip address>
 ```
 *remember your password if you are not using SSH keys!*
 
+### To easily spin up new VMs!
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image
+
+Your miner won't automatically begin. It's important to remember to SSH into your VM and start it up manually.
+However, it's possible to ensure that your miner begins working as soon as your instances start up! Check this link http://ccm.net/faq/3348-execute-a-script-at-startup-and-shutdown-on-ubuntu
 
 ### References
 

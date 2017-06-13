@@ -17,5 +17,9 @@ Once it's done, you can now terminate your SSH session and your server should be
 ssh -i <path-to-aws-key-file> ubuntu@<ec2-address>
 ```
 
+### To easily spin up new instances!
+Create an AMI of your working instance and then in future, when you create new instances, just select the AMI you created. You will still need to SSH into your newly created instances to begin mining.
+
+However, it's possible to ensure that your miner begins working as soon as your instances start up! Check this link http://ccm.net/faq/3348-execute-a-script-at-startup-and-shutdown-on-ubuntu
 
 ### References
