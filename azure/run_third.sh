@@ -3,19 +3,42 @@ sudo apt-get update
 sudo apt-get install ethereum
 
 # Install Claymore Miner
+cd ~
+mkdir miner
 wget https://www.dropbox.com/s/r5mn00lngbwipvo/claymore-v9.5.tar.gz?dl=1
 mv claymore-v9.5.tar.gz?dl=1 claymore-v9.5.tar.gz
 tar -xvzf claymore-v9.5.tar.gz
-mv Claymore\'s\ Dual\ Ethereum+Decred_Siacoin_Lbry_Pascal\ AMD+NVIDIA\ GPU\ Miner\ v9.5\ -\ LINUX/ claymore
-cd claymore
+rm claymore-v9.5.tar.gz
+mv Claymore\'s\ Dual\ Ethereum+Decred_Siacoin_Lbry_Pascal\ AMD+NVIDIA\ GPU\ Miner\ v9.5\ -\ LINUX/ miner/claymore
 
 # Begin mining!
 cd ~
-touch mine.sh
-cat <<EOT >> mine.sh
+touch miner/mine.sh
+cat <<EOT >> miner/mine.sh
 IP_ADDRESS="azure-`hostname -I`"
-/home/digdug/claymore/ethdcrminer64 -epool us1.ethermine.org:4444 -ewal 0x3A732697eE046Bf09969Ae8Ce3618Dccc1764489.$IP_ADDRESS -epsw x
+/home/digdug/miner/claymore/ethdcrminer64 -epool us1.ethermine.org:4444 -ewal 0x3A732697eE046Bf09969Ae8Ce3618Dccc1764489.$IP_ADDRESS -epsw x
 EOT
+
+chmod 775 miner/mine.sh
+
+cd ~
+touch miner_launcher.sh
+cat <<EOT >> miner_launcher.sh
+#!/bin/bash
+DEFAULT_DELAY=5
+if [ "x$1" = "x" -o "x$1" = "xnone" ]; then
+   DELAY=$DEFAULT_DELAY
+else
+   DELAY=$1
+fi
+sleep $DELAY
+
+su digdug -c "screen -dmS ethm /home/digdug/miner/mine.sh"
+EOT
+
+chmod 775 miner_launcher.sh
+
+echo "alias miner=\"screen -r ethm\"" >> ~/.bashrc
 
 sudo echo > /etc/rc.local
 sudo cat <<EOT >> /etc/rc.local
@@ -29,3 +52,5 @@ set -x                         # tell sh to display commands before execution
 
 exit 0
 EOT
+
+sudo reboot

@@ -21,8 +21,6 @@ sudo ./run_second.sh
 ```
 *Just hit 'Yes' or 'Y' every time you are prompted*
 
-You should set up an account with MinerGate while waiting. You will need to use the same email address as your minergate account at step 3
-
 Again, after `run two` your server should reboot itself.
 
 ## 3: SSH into your server for the third time and run the following commands
