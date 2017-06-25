@@ -5,10 +5,10 @@ A shell script to mine Ethereum on Microsoft Azure
 ```
 git clone https://github.com/joshteng/Ethereum-mining
 cd Ethereum-mining/azure
-chmod +x run_one.sh
-chmod +x run_two.sh
-chmod +x run_three.sh
-sudo ./run_one.sh
+chmod +x run_first.sh
+chmod +x run_second.sh
+chmod +x run_third.sh
+sudo ./run_first.sh
 ```
 *Just hit 'Yes' or 'Y' every time you are prompted*
 
@@ -17,7 +17,7 @@ Your server should reboot itself after `run one`
 ## 2: SSH into your server for the second time and run the following commands
 ```
 cd Ethereum-mining/azure
-sudo ./run_two.sh
+sudo ./run_second.sh
 ```
 *Just hit 'Yes' or 'Y' every time you are prompted*
 
@@ -28,7 +28,7 @@ Again, after `run two` your server should reboot itself.
 ## 3: SSH into your server for the third time and run the following commands
 ```
 cd Ethereum-mining/azure
-sudo ./run_three.sh
+sudo ./run_third.sh
 ```
 
 You can now terminate your SSH session and your server should be mining in the background
