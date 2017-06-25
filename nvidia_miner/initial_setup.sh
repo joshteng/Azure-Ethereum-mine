@@ -15,6 +15,10 @@ sudo apt-get install software-properties-common gcc make
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
 sudo apt-get install openssh-server
+sudo apt-get install curl
+sudo apt-get install vim
+curl -L http://install.ohmyz.sh | sh
+curl http://install.sublivim.com | sh
 
 # Step 2: Install proprietary NVIDIA GPU Driver
 sudo apt-get purge nvidia-*
@@ -37,28 +41,30 @@ mkdir ~/miner/claymore95
 tar -xvf Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v9.5.-.LINUX.tar.gz -C ~/miner/claymore95
 chmod u+s ~/miner/claymore95/ethdcrminer64
 cd ~
-cp ~/nvidia_miner/home/digdug/miner/mine.sh ~/miner/mine.sh
+sudo cp ~/Ethereum-mining/nvidia_miner/home/digdug/miner/mine.sh ~/miner/mine.sh
+sudo chown digdug:digdug ~/miner/mine.sh
 chmod +x ~/miner/mine.sh
 
 # Step 5: Set up autostart script
 echo "Setting up auto mining!"
 sudo apt-get install screen
 cd ~
-cp ~/nvidia_miner/home/digdug/miner_launcher.sh ~/miner_launcher.sh
+cp ~/Ethereum-mining/nvidia_miner/home/digdug/miner_launcher.sh ~/miner_launcher.sh
 chmod +x ~/miner_launcher.sh
-echo "alias miner=\"screen -r ethm\"" >> ~./bashrc
+echo "alias miner=\"screen -r ethm\"" >> ~/.bashrc
 
 # Step 6: Set up OC
 echo "Setting up OC!"
-"xfce4-terminal" >> ~./bashrc
-cp ~/nvidia_miner/home/digdug/oc.sh ~/
+# start terminal automatically on boot!
+
+cp ~/Ethereum-mining/nvidia_miner/home/digdug/oc.sh ~/
 chmod +x ~/oc.sh
 
-cat ~/nvidia_miner/home/digdug/.bashrc.oc >> ~/.bashrc
+cat ~/Ethereum-mining/nvidia_miner/home/digdug/.bashrc.oc >> ~/.bashrc
 
-sudo cp ~/nvidia_miner/etc/rc.local /etc/rc.local
+sudo cp ~/Ethereum-mining/nvidia_miner/etc/rc.local /etc/rc.local
 
-nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration # sudo may be necessary (when more cards are added, need to run this command again)
+sudo nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration
 
 sudo reboot
 
@@ -70,9 +76,3 @@ cat << EOF
 To get into SSH, run this from your local computer command line
 cat ~/.ssh/id_rsa.pub | ssh <user>@<123.45.56.78> "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
 EOF
-
-# Step 8 (optional): Install VIM and use some sublime config
-sudo apt-get install curl
-sudo apt-get install vim
-curl -L http://install.ohmyz.sh | sh
-curl http://install.sublivim.com | sh

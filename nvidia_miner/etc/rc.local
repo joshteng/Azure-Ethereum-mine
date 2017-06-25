@@ -4,9 +4,10 @@ exec 1>&2                      # send stdout to the same log file
 set -x                         # tell sh to display commands before execution
 
 # Rewrite hostname
-IP_ADDRESS=`ip route get 8.8.8.8 | awk '{print $NF; exit}'`
+IP_ADDRESS="`ip route get 8.8.8.8 | awk '{print $NF; exit}' | sed -e 's/[\.]/-/g'`"
+
 echo > /etc/hostname
-echo "location-concreate-retreat-$(IP_ADDRESS) > /etc/hostname
+echo "location-concreate-retreat-$IP_ADDRESS" > /etc/hostname
 
 # Auto start miner
 /home/digdug/miner_launcher.sh 10 &
