@@ -21,15 +21,16 @@
   2. However, instead of running commands like that, I find it easier to keep track of everything in a file. So create a file, make it executable and run it to adjust your settings. I created a file in my home directory called `oc.sh` and it looks like:
 
     ```
-    nvidia-smi -pm 1
-    nvidia-smi -pl 115
-    nvidia-settings -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=1200'
-    nvidia-settings -a '[gpu:1]/GPUMemoryTransferRateOffset[3]=1200'
-    nvidia-settings -a '[gpu:2]/GPUMemoryTransferRateOffset[3]=1100'
-    nvidia-settings -a '[gpu:3]/GPUMemoryTransferRateOffset[3]=1200'
-    nvidia-settings -a '[gpu:4]/GPUMemoryTransferRateOffset[3]=1200'
-    nvidia-settings -a '[gpu:5]/GPUMemoryTransferRateOffset[3]=1200' # assuming you have 6 GPUs
+      nvidia-smi -pm 1
+      nvidia-smi -pl 115
+      nvidia-settings -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=1200'
+      nvidia-settings -a '[gpu:1]/GPUMemoryTransferRateOffset[3]=1200'
+      nvidia-settings -a '[gpu:2]/GPUMemoryTransferRateOffset[3]=1100'
+      nvidia-settings -a '[gpu:3]/GPUMemoryTransferRateOffset[3]=1200'
+      nvidia-settings -a '[gpu:4]/GPUMemoryTransferRateOffset[3]=1200'
+      nvidia-settings -a '[gpu:5]/GPUMemoryTransferRateOffset[3]=1200' # assuming you have 6 GPUs
     ```
+
     You can run it by typing `./oc.sh`
     Tweak each GPU by each GPU until you find the right config!
   3. the command `nvidia-smi -pl` is to set the power limit for each GPU and `nvidia-smi -pm 1` is to make the setting persist
