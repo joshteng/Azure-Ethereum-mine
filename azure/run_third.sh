@@ -37,11 +37,11 @@ su digdug -c "screen -dmS ethm /home/digdug/miner/mine.sh"
 EOT
 
 chmod 775 miner_launcher.sh
+sudo chown digdug:digdug miner_launcher.sh
 
 echo "alias miner=\"screen -r ethm\"" >> ~/.bashrc
 
-sudo echo > /etc/rc.local
-sudo cat <<EOT >> /etc/rc.local
+sudo cat <<EOT > /etc/rc.local
 #!/bin/sh -e
 exec 2> /tmp/rc.local.log      # send stderr from rc.local to a log file
 exec 1>&2                      # send stdout to the same log file
