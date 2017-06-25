@@ -1,6 +1,6 @@
 # Setting up a NVIDIA Mining Rig
 
-1. Use the right motherboard!
+1. Use the right motherboard! (don't try to save a buck here. Really. Your life will be hell.)
   Good options:
     - Asus Prime Z270 - A
     - ASRock H97 Anniversary
