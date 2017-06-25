@@ -57,3 +57,10 @@
 ENJOY!
 
 p.s. for this to work, you need to ensure that your user auto logs in as soon as the computer boots. No password required even if password is set.
+
+
+
+To do
+1. No hardcoding of potentially variable names
+2. When new GPUs are added, re-run the `sudo nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration` and `sudo reboot`
+3. Check if IP has changed but hostname has not been updated, run `sudo reboot` again.

@@ -50,6 +50,7 @@ echo "Setting up auto mining!"
 sudo apt-get install screen
 cd ~
 cp ~/Ethereum-mining/nvidia_miner/home/digdug/miner_launcher.sh ~/miner_launcher.sh
+sudo chown digdug:digdug ~/miner_launcher.sh
 chmod +x ~/miner_launcher.sh
 echo "alias miner=\"screen -r ethm\"" >> ~/.bashrc
 
