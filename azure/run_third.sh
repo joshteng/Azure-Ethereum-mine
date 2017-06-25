@@ -13,7 +13,7 @@ cd claymore
 cd ~
 touch mine.sh
 cat <<EOT >> mine.sh
-IP_ADDRESS="`hostname -I`"
+IP_ADDRESS="azure-`hostname -I`"
 /home/digdug/claymore/ethdcrminer64 -epool us1.ethermine.org:4444 -ewal 0x3A732697eE046Bf09969Ae8Ce3618Dccc1764489.$IP_ADDRESS -epsw x
 EOT
 
