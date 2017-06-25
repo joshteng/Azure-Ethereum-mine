@@ -1,0 +1,18 @@
+#!/bin/sh -e
+exec 2> /tmp/rc.local.log      # send stderr from rc.local to a log file
+exec 1>&2                      # send stdout to the same log file
+set -x                         # tell sh to display commands before execution
+
+# Rewrite hostname
+IP_ADDRESS=`ip route get 8.8.8.8 | awk '{print $NF; exit}'`
+echo > /etc/hostname
+echo "location-concreate-retreat-$(IP_ADDRESS) > /etc/hostname
+
+# Auto start miner
+/home/digdug/miner_launcher.sh 10 &
+
+# Power limit GPUs
+nvidia-smi -pm 1
+nvidia-smi -pl 115
+
+exit 0

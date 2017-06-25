@@ -1,0 +1,10 @@
+# TO OVERCLOCK
+OC_LOG_FILE="/tmp/oc.log"
+OC_SCRIPT="oc.sh"
+
+if [ ! -f $OC_LOG_FILE ]; then
+  touch $OC_LOG_FILE
+  sh $OC_SCRIPT > $OC_LOG_FILE
+else
+  echo "Woot! Already ran initial $OC_SCRIPT OC script!"
+fi
