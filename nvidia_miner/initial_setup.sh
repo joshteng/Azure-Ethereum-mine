@@ -55,7 +55,17 @@ echo "alias miner=\"screen -r ethm\"" >> ~/.bashrc
 
 # Step 6: Set up OC
 echo "Setting up OC!"
-# start terminal automatically on boot!
+cd /etc/xdg/autostart
+sudo touch xfce4-terminal.desktop
+sudo cat <<EOT >> xfce4-terminal.desktop
+[Desktop Entry]
+Name=Terminal
+Icon=xfpm-ac-adapter
+Exec=xfce4-terminal
+Type=Application
+NotShowIn=GNOME;KDE;Unity;
+StartupNotify=false
+EOT
 
 cp ~/Ethereum-mining/nvidia_miner/home/digdug/oc.sh ~/
 chmod +x ~/oc.sh
