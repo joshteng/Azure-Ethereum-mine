@@ -35,11 +35,15 @@ sudo apt-get install ethereum
 # Step 4: Install Claymore
 echo "Installing Claymore and setting up miner!"
 cd ~
-wget https://github.com/nanopool/Claymore-Dual-Miner/releases/download/v9.5/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v9.5.-.LINUX.tar.gz
+
 mkdir ~/miner/
-mkdir ~/miner/claymore95
-tar -xvf Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v9.5.-.LINUX.tar.gz -C ~/miner/claymore95
-chmod u+s ~/miner/claymore95/ethdcrminer64
+
+wget https://www.dropbox.com/s/r5mn00lngbwipvo/claymore-v9.5.tar.gz?dl=1
+mv claymore-v9.5.tar.gz?dl=1 claymore-v9.5.tar.gz
+tar -xvzf claymore-v9.5.tar.gz
+mv Claymore\'s\ Dual\ Ethereum+Decred_Siacoin_Lbry_Pascal\ AMD+NVIDIA\ GPU\ Miner\ v9.5\ -\ LINUX/ claymore
+mv claymore ~/miner
+chmod u+s ~/miner/claymore/ethdcrminer64
 cd ~
 sudo cp ~/Ethereum-mining/nvidia_miner/home/digdug/miner/mine.sh ~/miner/mine.sh
 sudo chown digdug:digdug ~/miner/mine.sh
