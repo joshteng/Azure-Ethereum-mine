@@ -20,7 +20,6 @@
   1. You can run commands like `nvidia-settings -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=1200'` directly in console to edit (the GUI version is just wonky)
   2. However, instead of running commands like that, I find it easier to keep track of everything in a file. So create a file, make it executable and run it to adjust your settings. I created a file in my home directory called `oc.sh` and it looks like
 
-    ```
     nvidia-smi -pm 1
     nvidia-smi -pl 115
     nvidia-settings -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=1200'
@@ -29,7 +28,6 @@
     nvidia-settings -a '[gpu:3]/GPUMemoryTransferRateOffset[3]=1200'
     nvidia-settings -a '[gpu:4]/GPUMemoryTransferRateOffset[3]=1200'
     nvidia-settings -a '[gpu:5]/GPUMemoryTransferRateOffset[3]=1200' # assuming you have 6 GPUs
-    ```
 
     You can run it by typing `./oc.sh`
     Tweak each GPU by each GPU until you find the right config!
