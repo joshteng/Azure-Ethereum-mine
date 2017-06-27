@@ -56,7 +56,7 @@ To spin up multiple at once
 #!/bin/bash
 for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
 do
-   az vm create --resource-group digduguseast --size Standard_NC6 --location westus2 --storage-sku Standard_LRS --name "digdugnc$i" --image digdugimage --admin-username digdug --ssh-key-value ~/.ssh/id_rsa.pub --nsg digdug1NSG
+   az vm create --resource-group digduguseast --size Standard_NC6 --location eastus --storage-sku Standard_LRS --name "digdugnc$i" --image digdugimage --admin-username digdug --ssh-key-value ~/.ssh/id_rsa.pub --nsg digdug1NSG
 done
 ```
 
