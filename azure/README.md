@@ -39,10 +39,26 @@ ssh <username>@<server ip address>
 *remember your password if you are not using SSH keys!*
 
 ### To easily spin up new VMs!
-https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image
+SSH into the VM you want to clone and run this command:
+```
+sudo waagent -deprovision -force
+```
+Then on your local machine run this (remember to change the resource group, VM name and all to suit your needs):
+```
+az vm deallocate --resource-group digduguseast --name digdug1
+az vm generalize --resource-group digduguseast --name digdug1
+az image create --resource-group digduguseast --location westus2 --name digdugimage --source digdug1
+az vm create --resource-group digduguseast --size Standard_NV6 --location westus2 --storage-sku Standard_LRS --name digdug1 --image digdugimage --admin-username digdug --ssh-key-value ~/.ssh/id_rsa.pub
+```
 
-Your miner won't automatically begin. It's important to remember to SSH into your VM and start it up manually.
-However, it's possible to ensure that your miner begins working as soon as your instances start up! Check this link http://ccm.net/faq/3348-execute-a-script-at-startup-and-shutdown-on-ubuntu
+To spin up multiple at once
+```
+#!/bin/bash
+for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+do
+   az vm create --resource-group digduguseast --size Standard_NC6 --location westus2 --storage-sku Standard_LRS --name "digdugnc$i" --image digdugimage --admin-username digdug --ssh-key-value ~/.ssh/id_rsa.pub --nsg digdug1NSG
+done
+```
 
 ### References
 
