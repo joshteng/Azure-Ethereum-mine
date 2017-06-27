@@ -4,19 +4,19 @@
 
 # Step 0: Download auto set-up script
 echo "Downloading Script"
-sudo apt-get install git
+sudo apt-get --yes --force-yes install git
 cd ~
 git clone https://github.com/joshteng/Ethereum-mining.git
 
 # Step 1: Install necessary packages
 echo "Installing Necessary packages!"
 sudo apt-get update
-sudo apt-get install software-properties-common gcc make
+sudo apt-get --yes --force-yes install software-properties-common gcc make
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
-sudo apt-get install openssh-server
-sudo apt-get install curl
-sudo apt-get install vim
+sudo apt-get --yes --force-yes install openssh-server
+sudo apt-get --yes --force-yes install curl
+sudo apt-get --yes --force-yes install vim
 curl -L http://install.ohmyz.sh | sh
 curl http://install.sublivim.com | sh
 
@@ -24,13 +24,13 @@ curl http://install.sublivim.com | sh
 sudo apt-get purge nvidia-*
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt-get update
-sudo apt-get install nvidia-375
+sudo apt-get --yes --force-yes install nvidia-375
 
 # Step 3: Install Ethereum
 echo "Installing Ethereum!"
 sudo add-apt-repository ppa:ethereum/ethereum
 sudo apt-get update
-sudo apt-get install ethereum
+sudo apt-get --yes --force-yes install ethereum
 
 # Step 4: Install Claymore
 echo "Installing Claymore and setting up miner!"
@@ -51,7 +51,7 @@ chmod +x ~/miner/mine.sh
 
 # Step 5: Set up autostart script
 echo "Setting up auto mining!"
-sudo apt-get install screen
+sudo apt-get --yes --force-yes install screen
 cd ~
 cp ~/Ethereum-mining/nvidia_miner/home/digdug/miner_launcher.sh ~/miner_launcher.sh
 sudo chown digdug:digdug ~/miner_launcher.sh
