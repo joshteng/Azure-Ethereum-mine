@@ -1,0 +1,1 @@
+/home/digdug/miner/reboot.sh
